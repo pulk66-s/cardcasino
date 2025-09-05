@@ -1,0 +1,29 @@
+### Get all cases
+GET http://localhost:3000/cases
+
+### Get user balance (requires authentication)
+GET http://localhost:3000/users/balance
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+### Open a case (requires authentication)
+POST http://localhost:3000/cases/open
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+Content-Type: application/json
+
+{
+    "caseUuid": "CASE_UUID_HERE"
+}
+
+### Create a case (requires admin rights)
+POST http://localhost:3000/cases/create
+Authorization: Bearer YOUR_ADMIN_JWT_TOKEN_HERE
+Content-Type: application/json
+
+{
+    "name": "Test Case",
+    "description": "A test case for development",
+    "price": 15.00,
+    "rarity": "RARE",
+    "possibleCards": ["Test Card 1", "Test Card 2", "Test Card 3"],
+    "cardWeights": [50, 30, 20]
+}
