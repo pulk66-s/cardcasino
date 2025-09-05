@@ -1,5 +1,5 @@
 
-import { Controller, Get, Post, Body, Param, UnauthorizedException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, UnauthorizedException, UseGuards, Request } from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
 import { UserStorageService } from './services/user-storage.service';
 import { UserLoginService } from './services/user-login.service';
@@ -10,6 +10,7 @@ import { UserResponseDto } from './dto/user-response.dto';
 import { UserRightResponseDto } from './dto/user-right-response.dto';
 import { UserService } from './services/user.service';
 import { UserEntity } from './user.entity';
+import { AuthGuard } from '../game/auth.guard';
 
 @Controller('users')
 export class UserController {
@@ -38,5 +39,12 @@ export class UserController {
         const user = res.unwrap();
         const token = jwt.sign({ uuid: user.uuid, login: user.login }, 'your_jwt_secret', { expiresIn: '1h' });
         return { token, user };
+    }
+
+    @Get('balance')
+    @UseGuards(AuthGuard)
+    async getBalance(@Request() req): Promise<{ balance: number }> {
+        const user = req.user;
+        return { balance: user.balance };
     }
 }

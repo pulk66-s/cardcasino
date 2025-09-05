@@ -34,6 +34,9 @@ export class UserEntity extends DefaultEntity {
     @Column({ type: 'enum', enum: UserRights, default: UserRights.USER })
     rights: UserRights;
 
+    @Column({ type: 'decimal', precision: 10, scale: 2, default: 100.00 })
+    balance: number;
+
     @OneToMany(() => CardEntity, card => card.user)
     cards: CardEntity[];
 

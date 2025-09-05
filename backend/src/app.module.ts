@@ -2,6 +2,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Module } from '@nestjs/common';
 import { UserModule } from './components/user/user.module';
 import { CardModule } from './components/card/card.module';
+import { CaseModule } from './components/case/case.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { cpus } from 'os';
@@ -33,6 +34,7 @@ import { GameModule } from './components/game/game.module';
         }),
         UserModule,
         CardModule,
+        CaseModule,
         GameModule
     ],
 })
