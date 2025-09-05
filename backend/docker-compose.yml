@@ -1,0 +1,35 @@
+services:
+  psql:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: cardcasino
+      POSTGRES_USER: cardcasino
+      POSTGRES_DB: cardcasino
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - local_network
+
+  minio:
+    image: minio/minio:latest
+    restart: always
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+
+networks:
+  local_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  minio_data:

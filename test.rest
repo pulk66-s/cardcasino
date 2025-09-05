@@ -1,0 +1,43 @@
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "login": "pulk2",
+    "password": "pulk2",
+    "email": "pulk2@gmail.com"
+}
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "login": "pulk",
+    "password": "pulk"
+}
+###
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMTUwYjAxMWMtNzNlZS00ZjE2LTkxMDItZmE5NDI4YjgzYWQ4IiwibG9naW4iOiJwdWxrIiwiaWF0IjoxNzU2MzkzODc5LCJleHAiOjE3NTYzOTc0Nzl9.fZlCpMQgRwA4aHLibfAQ2Pck44dg86lcH0cGVu0agWA
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiYWYwMzRiZDUtM2Q1MS00Y2MyLTgzNWYtNTFlNjkyOTFhYjNmIiwibG9naW4iOiJwdWxrMiIsImlhdCI6MTc1NjM5NDM2MywiZXhwIjoxNzU2Mzk3OTYzfQ.xEZIbhDOeYG2ot1N338HMmDZIF82gEAHJoxoyFtny2I
+###
+GET http://localhost:3000/games
+###
+POST http://localhost:3000/games/new
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMTUwYjAxMWMtNzNlZS00ZjE2LTkxMDItZmE5NDI4YjgzYWQ4IiwibG9naW4iOiJwdWxrIiwiaWF0IjoxNzU2MzkzODc5LCJleHAiOjE3NTYzOTc0Nzl9.fZlCpMQgRwA4aHLibfAQ2Pck44dg86lcH0cGVu0agWA
+Content-Type: application/json
+
+{
+    "name": "CoinFlip"
+}
+###
+POST http://localhost:3000/games/join
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiYWYwMzRiZDUtM2Q1MS00Y2MyLTgzNWYtNTFlNjkyOTFhYjNmIiwibG9naW4iOiJwdWxrMiIsImlhdCI6MTc1NjM5NDM2MywiZXhwIjoxNzU2Mzk3OTYzfQ.xEZIbhDOeYG2ot1N338HMmDZIF82gEAHJoxoyFtny2I
+Content-Type: application/json
+
+{
+    "name": "CoinFlip"
+}
+###
+GET http://localhost:3000/games/current
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiYWYwMzRiZDUtM2Q1MS00Y2MyLTgzNWYtNTFlNjkyOTFhYjNmIiwibG9naW4iOiJwdWxrMiIsImlhdCI6MTc1NjM5NDM2MywiZXhwIjoxNzU2Mzk3OTYzfQ.xEZIbhDOeYG2ot1N338HMmDZIF82gEAHJoxoyFtny2I
+###
+GET http://localhost:3000/games/current
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMTUwYjAxMWMtNzNlZS00ZjE2LTkxMDItZmE5NDI4YjgzYWQ4IiwibG9naW4iOiJwdWxrIiwiaWF0IjoxNzU2MzkzODc5LCJleHAiOjE3NTYzOTc0Nzl9.fZlCpMQgRwA4aHLibfAQ2Pck44dg86lcH0cGVu0agWA
